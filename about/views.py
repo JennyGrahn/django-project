@@ -1,8 +1,10 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-# Create your views here.
+from django.contrib import admin
+from django.urls import path, include
+from hello_world import views as index_views
+from about import views as about_views
 
-def about_me(request):
-    return HttpResponse("This would be the about page")
-
-#Namnge texten 
+urlpatterns = [
+    path('hello/', index_views.index, name='index'),
+    path('about/', about_views.about_me, name='about'),
+    path('admin/', admin.site.urls),
+]
